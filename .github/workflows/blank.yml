@@ -35,4 +35,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
     outputs:
-      env: ${{ github.event.qat_env  }}
+      env: ${{ github.event.inputs.qat_env  }}
