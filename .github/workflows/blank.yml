@@ -34,13 +34,5 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: Save env
-        env:
-          ENV_NAME: ${{ github.event.qat_env }}
-        run: |
-          mkdir -p ./pr
-          echo $ENV_NAME > ./pr/env_name
-      - uses: actions/upload-artifact@v4
-        with:
-          name: env_name
-          path: pr/
+    outputs:
+      env: ${{ github.event.qat_env  }}
