@@ -9,7 +9,7 @@ on:
     workflows: ['CI']
     types: [completed]
     branches:
-        - 'feat/add-sanity-each-deploy'
+        - 'main'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
