@@ -5,11 +5,10 @@ name: e2e
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  workflow_call:
-    inputs:
-      env:
-        required: true
-        type: string
+  workflow_run:
+    workflows: [CI]
+    types:
+      - completed
 
 jobs:
   triage:
@@ -19,4 +18,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "${{ inputs.env }}"
+        run: echo "${{ github.ref }}"
