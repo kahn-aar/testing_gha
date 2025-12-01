@@ -15,10 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 0
+      - name: 'Get Previous tag'
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "${{ github.event.workflow_run.name }}"
+        run: echo ${{ steps.previoustag.outputs.tag }}
       
       - name: Run a one-line script
         run: echo "${{ github.event.workflow_run.workflow_id }}"
