@@ -18,7 +18,15 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "${{ context.payload.workflow_run.name }}"
+        run: echo "${{ github.workflow_run.name }}"
       
       - name: Run a one-line script
-        run: echo "${{ context.payload.workflow_run.workflow_id }}"
+        run: echo "${{ github.workflow_run.workflow_id }}"
+
+        
+      
+      - name: Run a one-line script
+        run: echo "${{ github.ref_name }}"
+      
+      - name: Run a one-line script
+        run: echo "${{ github.workflow_run.ref_name }}"
