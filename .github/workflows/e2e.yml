@@ -10,7 +10,10 @@ on:
       env:
         required: true
         type: string
-
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+      
 jobs:
   triage:
     runs-on: ubuntu-latest
@@ -19,4 +22,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "${{ inputs.env }}"
+        run: echo "${{ github.ref_name }}"
